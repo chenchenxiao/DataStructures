@@ -16,17 +16,20 @@ package 排序;
  */
 public class 选择排序 {
     public static void main(String[] args) {
-        int[] arrs = ArraysUtils.getArrs(100000, 10000000);
+        int[] arrs = ArraysUtils.getArrs(10, 100);
         long start = System.currentTimeMillis() / 10000;
         System.out.println(start);
         for (int i = 0; i < arrs.length - 1; i++) {
+            int temp = arrs[i];
+            int index = i;
             for (int j = i + 1; j < arrs.length; j++) {
-                int temp = arrs[i];
                 if (temp > arrs[j]) {
-                    arrs[i] = arrs[j];
-                    arrs[j] = temp;
+                    temp = arrs[j];
+                    index = j;
                 }
             }
+            arrs[index] = arrs[i];
+            arrs[i] = temp;
         }
         long end = System.currentTimeMillis() / 10000;
         System.out.println(end);

@@ -8,26 +8,10 @@ package 剑指offer;
  */
 public class N35 {
 
-    public static void main(String[] args) {
-        int[] array = {1,2,3,4,5,6,7,0};
-        int result = new N35().InversePairs(array);
-        System.out.println(result);
-    }
+
 
     public int InversePairs(int [] array) {
-        int length = array.length;
-        int result =  0;
-        for (int i = 0; i < length - 1; i++) {
-            if (array[i] > array[i + 1]) {
-                int temp = array[i + 1];
-                for (int j = 0; j <= i; j++) {
-                    if (array[j] > temp) {
-                        result++;
-                    }
-                }
-            }
-        }
-        return result % 1000000007;
+        return 0;
     }
 
 }

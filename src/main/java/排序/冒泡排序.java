@@ -16,9 +16,8 @@ package 排序;
  */
 public class 冒泡排序 {
     public static void main(String[] args) {
-        int[] arrs = ArraysUtils.getArrs(100, 10000000);
+        int[] arrs = ArraysUtils.getArrs(5, 10);
         long start = System.currentTimeMillis() / 1000;
-//        System.out.println(start);
         for (int i = 0; i < arrs.length - 1; i++) {
             boolean flag = false;
             for (int j = 0; j < arrs.length - 1 - i; j++) {
@@ -30,7 +29,6 @@ public class 冒泡排序 {
                 }
             }
             ArraysUtils.print(arrs);
-//            System.out.println("");
             if (flag == false) {
                 return;
             }

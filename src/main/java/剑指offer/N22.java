@@ -8,4 +8,30 @@ package 剑指offer;
  */
 public class N22 {
 
+    public boolean VerifySquenceOfBST(int[] sequence) {
+        int length = sequence.length;
+        if (length == 0) {
+            return false;
+        }
+        if (length == 1) {
+            return true;
+        }
+        return judge(sequence, 0, length - 1);
+    }
+
+    public boolean judge(int[] a, int start, int end) {
+        if (start >= end) {
+            return true;
+        }
+        int i = start;
+        while (a[i] < a[end]) {
+            i++;
+        }
+        for (int j = i; j < end; j++) {
+            if (a[j] < a[end]) {
+                return false;
+            }
+        }
+        return judge(a, start, i - 1) && judge(a, i, end - 1);
+    }
 }

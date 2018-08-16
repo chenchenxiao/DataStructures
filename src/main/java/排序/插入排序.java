@@ -15,7 +15,7 @@ package 排序;
  */
 public class 插入排序 {
     public static void main(String[] args) {
-        int[] arrs = ArraysUtils.getArrs(100, 100000);
+        int[] arrs = ArraysUtils.getArrs(5, 10);
         int length = arrs.length;
         for (int i = 0; i < length; i++) {
             int index = i;

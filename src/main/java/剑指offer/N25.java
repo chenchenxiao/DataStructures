@@ -7,4 +7,39 @@ package 剑指offer;
  *               返回结果为复制后复杂链表的head。（注意，输出结果中请不要返回参数中的节点引用，否则判题程序会直接返回空）
  */
 public class N25 {
+
+
+    public RandomListNode Clone(RandomListNode pHead) {
+        if (pHead == null) {
+            return null;
+        }
+        RandomListNode currentNode = pHead;
+        while (currentNode != null) {
+            RandomListNode cloneNode = new RandomListNode(currentNode.label);
+            RandomListNode nextNode = currentNode.next;
+            currentNode.next = cloneNode;
+            cloneNode.next = nextNode;
+            currentNode = nextNode;
+        }
+        currentNode = pHead;
+        while (currentNode != null) {
+            if (currentNode.random == null) {
+                currentNode.random = null;
+            } else {
+                currentNode.random = currentNode.random.next;
+            }
+            currentNode.next.random = currentNode.random;
+            currentNode = currentNode.next.next;
+        }
+        currentNode = pHead;
+        RandomListNode pCloneHead = pHead.next;
+        while (currentNode != null) {
+            RandomListNode cloneNode = currentNode.next;
+            currentNode.next = cloneNode.next;
+            cloneNode.next = cloneNode.next == null ? null : cloneNode.next.next;
+            currentNode = currentNode.next;
+        }
+        return pCloneHead;
+    }
+
 }
